@@ -15,8 +15,11 @@ function divide(number1, number2) {
 }
 
 $(document).ready(function() {
-  const number1 = parseInt(prompt("Enter a number:"));
-  const number2 = parseInt(prompt("Enter another number:"));
-
-  alert(add(number1, number2));
+  $("form#add").submit(function(event) {
+    event.preventDefault();
+    const number1 = parseInt($("#add1").val());
+    const number2 = parseInt($("#add2").val());
+    const result = add(number1, number2);
+    $("#output").text(result);
+  });
 });
